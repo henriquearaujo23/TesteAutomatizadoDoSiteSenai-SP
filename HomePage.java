@@ -17,8 +17,8 @@ public class HomePage {
 	@Before
 	public void Setup() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);		
 		driver.manage().window().maximize();
 	}
 	
@@ -29,11 +29,13 @@ public class HomePage {
 		WebElement input = driver.findElement(By.id("Busca1_txtFiltro"));
 		
 		input.sendKeys("gestão");
-		input.sendKeys(Keys.ENTER);
+		//input.sendKeys(Keys.ENTER);
+		
+		driver.findElement(By.id("Busca1_btnBusca")).click();
 	}
 	
-	@After
-	public void FecharNavegador() {
-		driver.close();
-	}
+	//@After
+	//public void FecharNavegador() {
+		//driver.close();
+	//}
 }
